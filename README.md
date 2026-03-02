@@ -2,6 +2,7 @@
 
 # # Team Members
 - Bárbara Dias
+- João Casanova
 
 ## Project Description
 Credit scoring bias analysis for DEGO course .
