@@ -33,14 +33,14 @@ Dataset characteristics:
 - stored in [data/curated/credit_applications_curated.csv](../data/curated/credit_applications_curated.csv)
 
 The data engineering pipeline and dataset preparation process are documented in
-`notebooks/01-data-quality.ipynb`.
+[Data Quality Analysis](../notebooks/01-data-quality.ipynb).
 
 ## 3. Data Accuracy and Quality
 
 GDPR requires personal data to be accurate and kept up to date.
 
 A comprehensive data quality assessment was conducted in
-`notebooks/01-data-quality.ipynb`.
+[Data Quality Analysis](../notebooks/01-data-quality.ipynb).
 
 The analysis evaluated several dimensions of data quality:
 
@@ -65,7 +65,7 @@ GDPR emphasizes fair processing and protection against discriminatory outcomes
 resulting from automated decision systems.
 
 To evaluate fairness risks, a bias and fairness analysis was conducted in
-`notebooks/02-bias-analysis.ipynb`.
+[Bias and Fairness Analysis](../notebooks/02-bias-analysis.ipynb).
 
 The analysis included:
 
@@ -82,7 +82,7 @@ through proxy variables.
 Such evaluation supports responsible AI development and compliance with
 fair processing principles under GDPR.
 
-## 5. Data Minimization 
+## 5. Data Minimization
 
 Only variables necessary for the analysis of loan approval outcomes were retained
 in the curated dataset.
@@ -97,9 +97,9 @@ and fairness evaluation process.
 
 Project data is organized into structured storage layers:
 
-- `data/raw` – original dataset
-- `data/curated` – processed dataset used for analysis
-- `data/artifacts` – data quality outputs and summaries
+- [data/raw](../data/raw) – original dataset – original dataset
+- [data/curated](../data/curated) – processed dataset used for analysis
+- [data/artifacts](../data/artifacts) – data quality outputs and summaries
 
 This layered data architecture supports transparency, reproducibility,
 and responsible data management.
