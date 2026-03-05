@@ -116,8 +116,9 @@ and fairness evaluation process.
 This process also supports privacy protection by ensuring that the
 dataset used for analysis does not include unnecessary personal
 information. Removing direct identifiers and limiting the dataset
-to relevant attributes reduces the risk of re-identification and
-aligns with the GDPR principle of data minimization (Article 5(1)(c)).
+to relevant attributes represents a form of data anonymization,
+reducing the risk of re-identification and aligning with the GDPR
+principle of data minimization (Article 5(1)(c)).
 
 ## 6. Data Governance and Security
 
