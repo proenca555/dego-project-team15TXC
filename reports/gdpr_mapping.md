@@ -1,6 +1,6 @@
 # GDPR Mapping and Data Governance Assessment
 
-## 1. Project Purpose
+## 1. Project Purpose (Purpose Limitation – GDPR Art. 5)
 
 The purpose of this project is to analyze a credit application dataset and investigate
 data quality, potential bias, and fairness issues in loan approval decisions.
@@ -25,17 +25,37 @@ However, some attributes such as age or geographic information may still act
 as indirect identifiers and therefore require careful governance and fairness
 evaluation.
 
+### Personal Data Assessment
+
+To evaluate potential privacy risks, the dataset was reviewed to identify
+fields that may contain personal or indirectly identifiable information.
+
+Direct identifiers such as names, email addresses, phone numbers, or
+government identification numbers are not present in the dataset.
+
+However, some attributes may still act as indirect identifiers,
+including:
+
+- Age
+- Geographic information (ZIP code)
+- Income-related attributes
+
+While these fields do not directly identify individuals, combinations
+of such attributes could potentially enable indirect identification.
+Therefore, appropriate governance practices and fairness analysis are
+necessary when using the dataset.
+
 The raw dataset is processed through a data engineering pipeline that transforms the data from JSON format into a curated dataset used for analysis.
 
 Dataset characteristics:
 - 500 records
 - 32 variables
-- stored in [data/curated/credit_applications_curated.csv](../data/curated/credit_applications_curated.csv)
+- stored in [credit_applications_curated.csv](../data/curated/credit_applications_curated.csv)
 
 The data engineering pipeline and dataset preparation process are documented in
 [Data Quality Analysis](../notebooks/01-data-quality.ipynb).
 
-## 3. Data Accuracy and Quality
+## 3. Accuracy Principle (GDPR Art. 5(1)(d))
 
 GDPR requires personal data to be accurate and kept up to date.
 
@@ -59,7 +79,7 @@ Key findings include:
 Problematic records were flagged for remediation before further analysis,
 ensuring that the curated dataset meets acceptable data quality standards.
 
-## 4. Fairness and Bias Analysis
+## 4. Fairness and Non-Discrimination (GDPR Art. 5 & Art. 22)
 
 GDPR emphasizes fair processing and protection against discriminatory outcomes
 resulting from automated decision systems.
@@ -82,7 +102,7 @@ through proxy variables.
 Such evaluation supports responsible AI development and compliance with
 fair processing principles under GDPR.
 
-## 5. Data Minimization
+## 5. Data Minimization (GDPR Art. 5(1)(c))
 
 Only variables necessary for the analysis of loan approval outcomes were retained
 in the curated dataset.
@@ -92,6 +112,12 @@ dataset suitable for analysis while removing unnecessary fields.
 
 This process helps ensure that only relevant information is used in the modeling
 and fairness evaluation process.
+
+This process also supports privacy protection by ensuring that the
+dataset used for analysis does not include unnecessary personal
+information. Removing direct identifiers and limiting the dataset
+to relevant attributes reduces the risk of re-identification and
+aligns with the GDPR principle of data minimization (Article 5(1)(c)).
 
 ## 6. Data Governance and Security
 
