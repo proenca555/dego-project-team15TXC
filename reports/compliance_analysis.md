@@ -1,3 +1,5 @@
+# Compliance Analysis
+
 ## 1. Overview
 
 This section evaluates how the project aligns with the GDPR principles identified in the GDPR Mapping analysis.The analysis focuses primarily on compliance with
