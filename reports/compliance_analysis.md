@@ -1,7 +1,6 @@
 ## 1. Overview
 
-This section evaluates whether the project aligns with relevant data governance
-and privacy principles. The analysis focuses primarily on compliance with
+This section evaluates how the project aligns with the GDPR principles identified in the GDPR Mapping analysis.The analysis focuses primarily on compliance with
 GDPR principles, responsible data processing practices, and fairness
 considerations in data-driven decision making.
 
