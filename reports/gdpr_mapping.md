@@ -1,0 +1,112 @@
+# GDPR Mapping and Data Governance Assessment
+
+## 1. Project Purpose (Purpose Limitation – GDPR Art. 5)
+
+The purpose of this project is to analyze a credit application dataset and investigate
+data quality, potential bias, and fairness issues in loan approval decisions.
+
+The analysis supports responsible data processing by ensuring that the dataset used
+for modeling is reliable and does not introduce discriminatory outcomes.
+
+Supporting analyses:
+- `notebooks/01-data-quality.ipynb`
+- `notebooks/02-bias-analysis.ipynb`
+
+## 2. Data Description
+
+The dataset used in this project contains credit application records used to
+evaluate loan approval outcomes.
+
+The raw dataset is processed through a data engineering pipeline that transforms
+the data from JSON format into a curated dataset used for analysis.
+
+Dataset characteristics:
+- 500 records
+- 32 variables
+- stored in `data/curated/credit_applications_curated.csv`
+
+The data engineering pipeline and dataset preparation process are documented in
+`notebooks/01-data-quality.ipynb`.
+
+## 3. Accuracy Principle (GDPR Art. 5(1)(d))
+
+GDPR requires personal data to be accurate and kept up to date.
+
+A comprehensive data quality assessment was conducted in
+`notebooks/01-data-quality.ipynb`.
+
+The analysis evaluated several dimensions of data quality:
+
+- Completeness
+- Consistency
+- Validity
+- Uniqueness
+- Accuracy
+
+Key findings include:
+
+- One record with non-positive income
+- One record with debt-to-income ratio outside the expected range
+- No unrealistic age values detected
+
+Problematic records were flagged for remediation before further analysis,
+ensuring that the curated dataset meets acceptable data quality standards.
+
+## 4. Fairness and Non-Discrimination (GDPR Art. 5 & Art. 22)
+
+GDPR emphasizes fair processing and protection against discriminatory outcomes
+resulting from automated decision systems.
+
+To evaluate fairness risks, a bias and fairness analysis was conducted in
+`notebooks/02-bias-analysis.ipynb`.
+
+The analysis included:
+
+- Disparate Impact Ratio analysis for gender
+- Age-based bias assessment
+- Proxy discrimination analysis using geographic variables (ZIP code)
+- Logistic regression modeling to evaluate relationships between demographic
+  attributes and loan approval outcomes
+
+These analyses help detect whether approval decisions differ significantly
+across demographic groups and whether indirect discrimination may occur
+through proxy variables.
+
+Such evaluation supports responsible AI development and compliance with
+fair processing principles under GDPR.
+
+## 5. Data Minimization (GDPR Art. 5(1)(c))
+
+Only variables necessary for the analysis of loan approval outcomes were retained
+in the curated dataset.
+
+The data engineering pipeline transforms raw application data into a structured
+dataset suitable for analysis while removing unnecessary fields.
+
+This process helps ensure that only relevant information is used in the modeling
+and fairness evaluation process.
+
+## 6. Data Governance and Security
+
+Project data is organized into structured storage layers:
+
+- `data/raw` – original dataset
+- `data/curated` – processed dataset used for analysis
+- `data/artifacts` – data quality outputs and summaries
+
+This layered data architecture supports transparency, reproducibility,
+and responsible data management.
+
+## 7. Summary of GDPR Compliance
+
+Based on the analyses conducted, the project demonstrates several practices that
+align with GDPR principles:
+
+- Data quality checks ensure accuracy of the dataset
+- Bias analysis helps detect potential discriminatory outcomes
+- Data processing is limited to the defined project objective
+- Structured data storage improves governance and transparency
+
+While the dataset is used for academic analysis rather than real-world deployment,
+the governance framework implemented in this project reflects best practices
+for responsible data processing.
