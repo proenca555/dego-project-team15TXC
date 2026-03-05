@@ -1,3 +1,5 @@
+# Ethical Risk Assessment
+
 ## 1. Introduction
 
 While regulatory compliance is an essential component of responsible
