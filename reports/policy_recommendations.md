@@ -1,15 +1,10 @@
 # Policy Recommendations
+### Introduction
+Based on the GDPR mapping, compliance analysis, and ethical risk assessment conducted in this project, several governance measures are recommended to ensure responsible use of credit application data and predictive analytics.
 
-## 1. Introduction
+These recommendations focus on fairness, transparency, data protection, and responsible AI governance.
 
-Based on the GDPR mapping, compliance analysis, and ethical risk assessment conducted in this project, several governance measures
-are recommended to ensure responsible use of credit application
-data and predictive analytics.
-
-These recommendations focus on fairness, transparency, data
-protection, and responsible AI governance.
-
-## 2. Bias Monitoring and Fairness Audits
+### Bias Monitoring and Fairness Audits
 
 Organizations using predictive models for credit approval should
 implement regular bias monitoring processes.
@@ -21,7 +16,7 @@ demographic groups such as gender or age.
 These audits should include fairness metrics such as disparate
 impact analysis and should be documented for transparency.
 
-## 3. Human Oversight in Decision-Making
+### Human Oversight in Decision-Making
 
 Under the EU AI Act, credit scoring systems are classified as
 high-risk AI systems. Such systems should include human oversight
@@ -32,7 +27,7 @@ Organizations should implement review procedures where human
 decision-makers can evaluate and override automated outcomes
 when necessary.
 
-## 4. Data Governance and Access Control
+### Data Governance and Access Control
 
 Access to sensitive datasets should be restricted to authorized personnel through appropriate access control mechanisms.
 
@@ -45,7 +40,7 @@ Data management policies should define:
 Organizations should maintain audit trails documenting how data
 is accessed, processed, and used in model decision processes.
 
-## 5. Transparency and Explainability
+### Transparency and Explainability
 
 Organizations should ensure that credit decision systems provide
 clear explanations of how decisions are made.
@@ -59,7 +54,7 @@ Transparency documentation should describe:
 Providing understandable explanations helps build trust and
 supports responsible AI deployment.
 
-## 6. Data Retention and Privacy Protection
+### Data Retention and Privacy Protection
 
 Organizations should establish clear data retention policies
 defining how long personal or financial data is stored.
@@ -72,7 +67,7 @@ When possible, datasets used for analysis should be anonymized
 or pseudonymized to reduce privacy risks.
 
 
-## 7. Governance Documentation and Accountability
+### Governance Documentation and Accountability
 
 Organizations should maintain documentation describing how data
 and models are managed throughout their lifecycle.
@@ -86,7 +81,7 @@ Key documentation should include:
 
 Clear documentation supports accountability and regulatory compliance.
 
-## 8. Summary
+### Summary
 
 Implementing strong governance policies helps ensure that
 data-driven systems used for credit decision analysis operate
@@ -95,3 +90,4 @@ in a fair, transparent, and responsible manner.
 These recommendations support compliance with GDPR principles
 and align with the governance expectations for high-risk AI
 systems under the EU AI Act.
+
