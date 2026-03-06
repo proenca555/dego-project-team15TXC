@@ -129,6 +129,13 @@ to relevant attributes represents a form of data anonymization,
 reducing the risk of re-identification and aligning with the GDPR
 principle of data minimization (Article 5(1)(c)).
 
+In addition, pseudonymization techniques can further reduce the risk
+of re-identification. For example, geographic identifiers such as ZIP
+codes may be generalized to broader regional categories, while exact
+age values can be grouped into ranges (e.g., 20–29, 30–39). These
+transformations help preserve analytical value while improving
+privacy protection for individuals represented in the dataset.
+
 ### Data Governance and Security
 
 Project data is organized into structured storage layers:
@@ -157,7 +164,7 @@ for responsible data processing.
 ## 3. Compliance Analysis
 
 ### Overview
-This section evaluates how the project aligns with the GDPR principles identified in the GDPR Mapping analysis.The analysis focuses primarily on compliance with
+This section evaluates how the project aligns with the GDPR principles identified in the GDPR Mapping analysis. The analysis focuses primarily on compliance with
 GDPR principles, responsible data processing practices, and fairness
 considerations in data-driven decision making.
 
@@ -280,7 +287,6 @@ regulatory and governance principles.
 ## 4. Policy Recommendations
 
 ### Bias Monitoring and Fairness Audits
-### Bias Monitoring and Fairness Audits
 
 Organizations using predictive models for credit approval should
 implement regular bias monitoring processes.
@@ -368,6 +374,8 @@ and align with the governance expectations for high-risk AI
 systems under the EU AI Act.
 
 ## 5. Governance Risk & Mitigation Summary
+
+The following table summarizes the main governance risks identified in the project and the corresponding mitigation strategies.
 
 | Risk Category | Description | Mitigation Strategy |
 |---|---|---|
