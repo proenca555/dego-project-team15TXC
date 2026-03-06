@@ -8,6 +8,15 @@ The analysis focuses on ensuring that data processing practices align with key r
 
 The report includes four main components: GDPR mapping, compliance analysis, policy recommendations, and governance risk mitigation strategies to support responsible and transparent data use.
 
+### Regulatory Classification (EU AI Act)
+
+Under the EU AI Act (Annex III, Section 5b), systems used for credit
+scoring and creditworthiness evaluation are classified as High-Risk
+AI systems. Because such systems influence individuals’ access to
+financial services, they must comply with strict requirements related
+to transparency, risk management, technical documentation, and human
+oversight.
+
 ## 2. GDPR Mapping
 
 ### Project Purpose (Purpose Limitation – GDPR Art.5)
@@ -202,6 +211,14 @@ between demographic groups.
 These analyses help identify potential fairness risks and support
 responsible use of predictive models.
 
+- **Model Explainability:** The statistical analysis conducted in the
+Bias Analysis Notebook identifies the **Debt-to-Income (DTI) ratio**
+as a primary predictor of loan approval (Odds Ratio ≈ 2.28). To comply
+with transparency requirements, applicants could be informed that
+high DTI levels were a key factor influencing rejection decisions.
+This improves explainability and reduces reliance on opaque
+“black-box” decision-making.
+
 ### EU AI Act Considerations
 
 Under the EU AI Act, AI systems used for credit scoring and loan
@@ -381,8 +398,8 @@ The following table summarizes the main governance risks identified in the proje
 |---|---|---|
 | Algorithmic Bias | Models trained on historical financial data may reproduce existing inequalities across demographic groups. | Implement fairness monitoring and periodic bias audits. |
 | Proxy Discrimination | Variables such as ZIP code or income may act as indirect indicators of sensitive attributes. | Evaluate proxy variables and monitor their influence on model predictions. |
-| Lack of Transparency | Automated credit decisions may be difficult for users to understand. | Provide explainability tools and clear documentation of model logic. |
-| Excessive Automation | Fully automated decisions may produce unfair outcomes without review. | Implement human oversight mechanisms for automated decisions. |
+| Lack of Transparency | Automated decisions can be difficult for consumers to interpret. | Explainability: Provide "Principal Reason for Decision" letters based on key features such as DTI ratio. |
+| Excessive Automation |Fully automated systems may miss individual nuances or produce false negatives. | Human-in-the-Loop (HITL): Implement a mandatory human review or appeal process for borderline credit decisions. |
 | Data Misuse | Credit application data could potentially be used for unrelated purposes. | Establish strict data governance and access control policies. |
 
 ## 6. Conclusion
