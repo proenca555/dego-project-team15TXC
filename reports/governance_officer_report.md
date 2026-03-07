@@ -30,8 +30,6 @@ Supporting analyses:
 - [Data Quality Analysis](../notebooks/01-data-quality.ipynb)
 - [Bias and Fairness Analysis](../notebooks/02-bias-analysis.ipynb)
 
-
-
 ### Data Description
 
 The dataset used in this project contains credit application records used to
@@ -90,9 +88,12 @@ The analysis evaluated several dimensions of data quality:
 
 Key findings include:
 
+- 161 / 500 records (32.2%) have missing date_of_birth, resulting in missing age
+- 2 / 500 records (0.4%) have unknown gender values
 - One record with non-positive income
 - One record with debt-to-income ratio outside the expected range
 - No unrealistic age values detected
+- Records explicitly flagged as `DUPLICATE_ENTRY_ERROR` or `RESUBMISSION` were removed during curation, reducing the dataset from 502 to 500 records
 
 Problematic records were flagged for remediation before further analysis,
 ensuring that the curated dataset meets acceptable data quality standards.
@@ -116,6 +117,17 @@ The analysis included:
 These analyses help detect whether approval decisions differ significantly
 across demographic groups and whether indirect discrimination may occur
 through proxy variables.
+
+Key fairness findings include:
+
+- Female approval rate: 0.506
+- Male approval rate: 0.660
+- Disparate Impact Ratio: 0.77
+- Since the ratio is below the 0.80 threshold, this indicates a potential disparity in approval outcomes between genders
+- A Chi-Square test of independence for gender and approval outcomes produced χ² = 11.505 and p < 0.001, indicating a statistically significant association
+- Approval rates also varied across age groups, from 37.0% in the 18–30 group to 68.9% in the 40–50 group
+- A Chi-Square test for age group and approval outcomes produced χ² = 8.870 and p = 0.031, indicating that approval outcomes differ across age categories
+- Geographic proxy analysis by ZIP code region also found statistically significant variation in approval outcomes (χ² = 8.870, p = 0.031)
 
 Such evaluation supports responsible AI development and compliance with
 fair processing principles under GDPR.
@@ -149,7 +161,7 @@ privacy protection for individuals represented in the dataset.
 
 Project data is organized into structured storage layers:
 
-- [data/raw](../data/raw) – original dataset – original dataset
+- [data/raw](../data/raw) – original dataset
 - [data/curated](../data/curated) – processed dataset used for analysis
 - [data/artifacts](../data/artifacts) – data quality outputs and summaries
 
@@ -195,6 +207,16 @@ Accuracy is supported through the data quality assessment performed in
 [Data Quality Analysis](../notebooks/01-data-quality.ipynb), which evaluated completeness,
 consistency, validity, and uniqueness of the dataset.
 
+More specifically, the data quality analysis found:
+
+- 32.2% missingness in date_of_birth and age
+- 90.0% missingness in loan_purpose
+- 87.6% missingness in processing_timestamp
+- 58.4% missingness in decision.rejection_reason
+- one non-positive income value
+- one debt-to-income value outside the valid [0,1] range
+- zero duplicate `_id` values remaining after remediation
+
 ### Fairness and Bias Compliance
 
 Ensuring fairness in automated decision-making systems is an important
@@ -213,11 +235,19 @@ responsible use of predictive models.
 
 - **Model Explainability:** The statistical analysis conducted in the
 Bias Analysis Notebook identifies the **Debt-to-Income (DTI) ratio**
-as a primary predictor of loan approval (Odds Ratio ≈ 2.28). To comply
+as a primary predictor of loan approval in the interaction model
+(Odds Ratio ≈ 2.28). To comply
 with transparency requirements, applicants could be informed that
 high DTI levels were a key factor influencing rejection decisions.
 This improves explainability and reduces reliance on opaque
 “black-box” decision-making.
+
+The fairness analysis also found that:
+
+- the baseline logistic regression model identified gender as statistically significant (p = 0.020)
+- after controlling for age, income, debt-to-income ratio, savings balance, and credit history length, age was not statistically significant (p = 0.914)
+- in the interaction model, neither gender (p = 0.851) nor the gender-age interaction (p = 0.662) remained statistically significant
+- annual income remained statistically significant (p = 0.013), suggesting that financial characteristics explain a meaningful portion of approval differences
 
 ### EU AI Act Considerations
 
@@ -255,7 +285,6 @@ why their applications are approved or rejected.
 Responsible governance practices therefore require fairness monitoring,
 transparent documentation of model behavior, and mechanisms for human
 oversight in automated decision systems.
-
 
 ### Data Governance and Security
 
@@ -297,8 +326,8 @@ regulatory and governance principles.
 |------------------------|-------------|------------------------|
 | GDPR – Purpose Limitation (Art. 5) | Data must be used for a clear and defined purpose | The dataset is used solely for analyzing loan approval outcomes and fairness evaluation |
 | GDPR – Data Minimization (Art. 5(1)(c)) | Only necessary data should be processed | The curated dataset retains only variables relevant for analysis |
-| GDPR – Accuracy (Art. 5(1)(d)) | Data must be accurate and reliable | Data quality checks were conducted in the Data Quality Analysis notebook |
-| GDPR – Fair Processing | Avoid discrimination and unfair outcomes | Bias analysis evaluates potential gender and age disparities |
+| GDPR – Accuracy (Art. 5(1)(d)) | Data must be accurate and reliable | Data quality checks were conducted in the Data Quality Analysis notebook; 1 non-positive income value and 1 out-of-range DTI value were identified and flagged |
+| GDPR – Fair Processing | Avoid discrimination and unfair outcomes | Bias analysis identified a gender Disparate Impact Ratio of 0.77 and statistically significant differences across gender and age groups |
 | EU AI Act – High Risk Systems | Credit scoring systems require transparency, monitoring, and human oversight | Bias evaluation and governance documentation support responsible AI development |
 
 ## 4. Policy Recommendations
@@ -314,6 +343,10 @@ demographic groups such as gender or age.
 
 These audits should include fairness metrics such as disparate
 impact analysis and should be documented for transparency.
+
+In this project, the gender Disparate Impact Ratio of 0.77 and
+the statistically significant Chi-Square results for gender and age
+demonstrate why such monitoring is necessary.
 
 ### Human Oversight in Decision-Making
 
@@ -353,6 +386,12 @@ Transparency documentation should describe:
 Providing understandable explanations helps build trust and
 supports responsible AI deployment.
 
+For example, in this project, annual income was statistically significant
+in the controlled and interaction logistic regression models (p = 0.013),
+while DTI had the largest odds ratio in the interaction model
+(Odds Ratio ≈ 2.28). These variables could therefore be communicated
+as principal decision factors in explainability documentation.
+
 ### Data Retention and Privacy Protection
 
 Organizations should establish clear data retention policies
@@ -364,7 +403,6 @@ GDPR data minimization and storage limitation principles.
 
 When possible, datasets used for analysis should be anonymized
 or pseudonymized to reduce privacy risks.
-
 
 ### Governance Documentation and Accountability
 
@@ -396,10 +434,10 @@ The following table summarizes the main governance risks identified in the proje
 
 | Risk Category | Description | Mitigation Strategy |
 |---|---|---|
-| Algorithmic Bias | Models trained on historical financial data may reproduce existing inequalities across demographic groups. | Implement fairness monitoring and periodic bias audits. |
-| Proxy Discrimination | Variables such as ZIP code or income may act as indirect indicators of sensitive attributes. | Evaluate proxy variables and monitor their influence on model predictions. |
-| Lack of Transparency | Automated decisions can be difficult for consumers to interpret. | Explainability: Provide "Principal Reason for Decision" letters based on key features such as DTI ratio. |
-| Excessive Automation |Fully automated systems may miss individual nuances or produce false negatives. | Human-in-the-Loop (HITL): Implement a mandatory human review or appeal process for borderline credit decisions. |
+| Algorithmic Bias | Models trained on historical financial data may reproduce existing inequalities across demographic groups. In this project, gender approval rates differed materially (female: 50.6%, male: 66.0%; DI = 0.77). | Implement fairness monitoring and periodic bias audits. |
+| Proxy Discrimination | Variables such as ZIP code or income may act as indirect indicators of sensitive attributes. Geographic approval differences across ZIP regions were statistically significant (p = 0.031). | Evaluate proxy variables and monitor their influence on model predictions. |
+| Lack of Transparency | Automated decisions can be difficult for consumers to interpret. | Explainability: Provide "Principal Reason for Decision" letters based on key features such as DTI ratio and annual income. |
+| Excessive Automation | Fully automated systems may miss individual nuances or produce false negatives. | Human-in-the-Loop (HITL): Implement a mandatory human review or appeal process for borderline credit decisions. |
 | Data Misuse | Credit application data could potentially be used for unrelated purposes. | Establish strict data governance and access control policies. |
 
 ## 6. Conclusion
@@ -415,3 +453,10 @@ governance. Implementing bias monitoring, transparency measures, and
 human oversight mechanisms will be important for ensuring that
 automated credit decision systems operate in a fair, transparent,
 and accountable manner.
+
+The empirical analysis also reinforces the governance relevance of the
+project: the dataset contains measurable data quality limitations,
+statistically significant fairness patterns across gender and age groups,
+and proxy risks associated with geographic variables. These findings
+support the need for continued monitoring, documentation, and governance
+controls in any real-world deployment of automated credit decision systems.
