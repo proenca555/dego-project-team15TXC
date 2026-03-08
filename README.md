@@ -11,13 +11,16 @@ Bias and governance analysis of automated credit approval systems, developed for
 The project evaluates potential algorithmic bias in credit scoring decisions and proposes governance mechanisms aligned with GDPR and the EU AI Act.
 
 ## Repository Structure
-- README.md – project overview, findings summary, and progress tracking
-- data/ – dataset files or links to the original data source
-- notebooks/ – analysis notebooks
-  - 01-data-quality.ipynb
-  - 02-bias-analysis.ipynb
-  - 03-privacy-demo.ipynb
-- src/ – reusable code and utility functions
+- README.md – project overview and findings summary
+- data/
+  - raw/ – original dataset
+  - curated/ – cleaned dataset used for analysis
+  - artifacts/ – intermediate data outputs
+- notebooks/
+  - 01-data-quality.ipynb – data quality assessment
+  - 02-bias-analysis.ipynb – fairness and bias analysis
+- src/ – reusable data engineering code
+- reports/ – governance analysis report
 - presentation/ – final presentation slides and recorded video
 
 ## Progress Tracking
