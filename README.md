@@ -37,3 +37,15 @@ Credit scoring bias analysis for DEGO course .
 - Identification of governance risks (algorithmic bias, proxy discrimination, transparency issues, excessive automation)
 - Development of governance policy recommendations (bias monitoring, human oversight, data governance policies, transparency mechanisms)
 - Continued development of presentation slides
+
+### 07-03-2026
+- Refined bias analysis and updated slides with quantitative findings
+- Added fairness metrics, approval rates, and statistical test results
+- Expanded slides on gender, age, geographic, and model-based bias
+- Improved presentation storyline and slide coherence
+
+### 08-03-2026
+- Refined governance report with quantitative evidence from the analysis
+- Strengthened GDPR / EU AI Act compliance discussion
+- Finalized slides, including governance recommendations and conclusion
+- Reviewed timing and presentation structure against project guidelines
