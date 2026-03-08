@@ -1,4 +1,4 @@
-# DEGO Project - Team 15txc
+# DEGO Project - Team 15TXC
 
 # # Team Members
 - Bárbara Dias
@@ -7,13 +7,18 @@
 - Getrude Mwatela
 
 ## Project Description
-Credit scoring bias analysis for DEGO course .
+Bias and governance analysis of automated credit approval systems, developed for the DEGO course.  
+The project evaluates potential algorithmic bias in credit scoring decisions and proposes governance mechanisms aligned with GDPR and the EU AI Act.
 
-## Structure
-- README.md – project overview and progress tracking
-- src/ – data engineering and analysis scripts
-- notebooks/ – exploratory analysis
-- results/ – outputs and figures used in the presentation
+## Repository Structure
+- README.md – project overview, findings summary, and progress tracking
+- data/ – dataset files or links to the original data source
+- notebooks/ – analysis notebooks
+  - 01-data-quality.ipynb
+  - 02-bias-analysis.ipynb
+  - 03-privacy-demo.ipynb
+- src/ – reusable code and utility functions
+- presentation/ – final presentation slides and recorded video
 
 ## Progress Tracking
 
@@ -45,7 +50,7 @@ Credit scoring bias analysis for DEGO course .
 - Improved presentation storyline and slide coherence
 
 ### 08-03-2026
-- Refined governance report with quantitative evidence from the analysis
-- Strengthened GDPR / EU AI Act compliance discussion
-- Finalized slides, including governance recommendations and conclusion
-- Reviewed timing and presentation structure against project guidelines
+- Refined governance analysis and aligned results with fairness metrics
+- Finalized presentation slides including governance risks and recommendations
+- Reviewed presentation timing and structure
+- Started recording the final presentation video
