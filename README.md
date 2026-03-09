@@ -15,7 +15,6 @@ The recorded presentation can be accessed here (YouTube – unlisted):
 https://youtu.be/nKuJDR7j1dE
 
 ## Repository Structure
-## Repository Structure
 - README.md – project overview and findings summary
 - data/
   - raw/ – original dataset
@@ -67,4 +66,4 @@ https://youtu.be/nKuJDR7j1dE
 
 ### 09-03-2026
 - Added a project description on Github
-- Uploaded the final presentation video link
+- Uploaded the final presentation video slides and link
