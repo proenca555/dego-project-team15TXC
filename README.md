@@ -17,17 +17,17 @@ https://youtu.be/nKuJDR7j1dE
 ## Repository Structure
 - README.md – project overview and findings summary
 - data/
-  - raw/ – original dataset
-  - curated/ – cleaned dataset used for analysis
-  - artifacts/ – intermediate data outputs
+  - raw/ – original dataset used as input for the project
+  - curated/ – cleaned dataset produced during the data quality phase
+  - artifacts/ – intermediate outputs and data quality artifacts
 - notebooks/
-  - 01-data-quality.ipynb – data quality assessment
-  - 02-bias-analysis.ipynb – fairness and bias analysis
-- src/ – reusable data engineering code
-- reports/ – governance analysis report
+  - 01-data-quality.ipynb – data quality assessment and dataset preparation
+  - 02-bias-analysis.ipynb – fairness and bias analysis of credit approval outcomes
+  - 03-privacy-demo.ipynb – privacy audit and governance demonstration (PII detection, pseudonymization, and data minimization)
+- src/ – reusable scripts and supporting code
 - presentation/
   - Presentation slides - Team TXC15.pdf – final presentation slides
-  - video_link.txt – link to the recorded presentation video (YouTube)
+  - video_link.txt – link to the recorded presentation video
 
 ## Progress Tracking
 
