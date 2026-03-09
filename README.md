@@ -1,6 +1,6 @@
 # DEGO Project - Team 15TXC
 
-# # Team Members
+## Team Members
 - Bárbara Dias
 - João Casanova
 - Tiago Proença
@@ -15,6 +15,7 @@ The recorded presentation can be accessed here (YouTube – unlisted):
 https://youtu.be/nKuJDR7j1dE
 
 ## Repository Structure
+## Repository Structure
 - README.md – project overview and findings summary
 - data/
   - raw/ – original dataset
@@ -25,7 +26,9 @@ https://youtu.be/nKuJDR7j1dE
   - 02-bias-analysis.ipynb – fairness and bias analysis
 - src/ – reusable data engineering code
 - reports/ – governance analysis report
-- presentation/ – final presentation slides and recorded video
+- presentation/
+  - Presentation slides - Team TXC15.pdf – final presentation slides
+  - video_link.txt – link to the recorded presentation video (YouTube)
 
 ## Progress Tracking
 
@@ -62,6 +65,6 @@ https://youtu.be/nKuJDR7j1dE
 - Reviewed presentation timing and structure
 - Started recording the final presentation video
 
-### 08-03-2026
+### 09-03-2026
 - Added a project description on Github
 - Uploaded the final presentation video link
