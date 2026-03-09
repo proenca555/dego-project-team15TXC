@@ -10,6 +10,10 @@
 Bias and governance analysis of automated credit approval systems, developed for the DEGO course.  
 The project evaluates potential algorithmic bias in credit scoring decisions and proposes governance mechanisms aligned with GDPR and the EU AI Act.
 
+## Presentation Video
+The recorded presentation can be accessed here (YouTube – unlisted):
+https://youtu.be/nKuJDR7j1dE
+
 ## Repository Structure
 - README.md – project overview and findings summary
 - data/
@@ -57,3 +61,7 @@ The project evaluates potential algorithmic bias in credit scoring decisions and
 - Finalized presentation slides including governance risks and recommendations
 - Reviewed presentation timing and structure
 - Started recording the final presentation video
+
+### 08-03-2026
+- Added a project description on Github
+- Uploaded the final presentation video link
